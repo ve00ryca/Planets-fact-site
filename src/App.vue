@@ -9,12 +9,16 @@
 </template>
 
 <style lang="scss">
+/* Css reset */
+@import url("./styles/reset.css");
+/* Google fonts */
+@import url("https://fonts.googleapis.com/css2?family=Antonio&family=Spartan:wght@400;700&display=swap");
+
 #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
+  font-family: "Spartan", sans-serif;
+  font-size: 14px;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
 }
 
 #nav {
