@@ -76,10 +76,7 @@ export default {
 };
 </script>
 
-<style scoped lang="scss">
-/* Variables */
-$base-color: #e5eff5;
-
+<style scoped>
 /* Navigation bar and navigation list for mobile devices */
 .nav {
   width: 90%;
@@ -91,50 +88,50 @@ $base-color: #e5eff5;
 #navbar {
   position: relative;
   height: 36px;
-  border-bottom: 1px solid $base-color;
-  #brand {
-    font-size: 1.75rem;
-    letter-spacing: -1.05px;
-    text-align: left;
-  }
-  #hamburger {
-    position: absolute;
-    top: 0;
-    right: 0;
-    width: 24px;
-    height: 36px;
-  }
-  .hamburger-lines {
-    content: "";
-    position: absolute;
-    right: 0;
-    width: 24px;
-    height: 3px;
-    display: block;
-    background: $base-color;
-    transition: 0.5s ease;
-  }
-  #hamburger-line-top {
-    top: 27.78%;
-  }
-  #hamburger-line-middle {
-    top: 47.22%;
-  }
-  #hamburger-line-bottom {
-    top: 66.67%;
-  }
-  .hamburger-line-top-transform {
-    transform: rotate(-45deg);
-    top: 50% !important;
-  }
-  .hamburger-line-middle-transform {
-    width: 1px;
-    right: 50% !important;
-  }
-  .hamburger-line-bottom-transform {
-    transform: rotate(45deg);
-    top: 50% !important;
-  }
+  border-bottom: 1px solid var(--base-color);
+}
+#navbar #brand {
+  font-size: 1.75rem;
+  letter-spacing: -1.05px;
+  text-align: left;
+}
+#navbar #hamburger {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 24px;
+  height: 36px;
+}
+#navbar .hamburger-lines {
+  content: "";
+  position: absolute;
+  right: 0;
+  width: 24px;
+  height: 3px;
+  display: block;
+  background: var(--base-color);
+  transition: 0.5s ease;
+}
+#navbar #hamburger-line-top {
+  top: 27.78%;
+}
+#navbar #hamburger-line-middle {
+  top: 47.22%;
+}
+#navbar #hamburger-line-bottom {
+  top: 66.67%;
+}
+#navbar .hamburger-line-top-transform {
+  transform: rotate(-45deg);
+  top: 50% !important;
+}
+#navbar .hamburger-line-middle-transform {
+  width: 1px;
+  right: 50% !important;
+}
+#navbar .hamburger-line-bottom-transform {
+  transform: rotate(45deg);
+  top: 50% !important;
 }
 
 /* Navigation list */
