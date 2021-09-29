@@ -4,6 +4,8 @@ This is a solution to the [Planets fact site challenge on Frontend Mentor](https
 
 # Currently working on this task :) Have a look at my progress on Netlify:
 
+https://planets-fact-site.netlify.app/
+
 ## Table of contents
 
 - [Overview](#overview)
