@@ -48,7 +48,8 @@ h2,
 h3,
 h4,
 button,
-#brand {
+#brand,
+li {
   text-transform: uppercase;
 }
 h1,
@@ -66,7 +67,8 @@ h2 {
 }
 h3,
 h4,
-button {
+button,
+li {
   font-family: Spartan, sans-serif;
   font-weight: 700;
 }

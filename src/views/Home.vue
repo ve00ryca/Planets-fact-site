@@ -1,6 +1,7 @@
 <template>
   <div class="home">
     <HelloWorld msg="Welcome to Your Vue.js App" />
+    <div v-html="svg"></div>
   </div>
 </template>
 
@@ -12,6 +13,22 @@ export default {
   name: "Home",
   components: {
     HelloWorld,
+  },
+  data() {
+    return {
+      svg: "",
+    };
+  },
+
+  /* props: {
+    name: {
+        type: String,
+        required: true
+    }
+} */
+
+  created() {
+    this.svg = require(`src/assets/background-stars.svg`);
   },
 };
 </script>
