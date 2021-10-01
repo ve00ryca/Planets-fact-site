@@ -24,42 +24,42 @@
       <li>
         <div class="planet-color-circle"></div>
         <div class="planet-name">Mercury</div>
-        <div class="shevron">></div>
+        <img class="chevron" src="@/assets/icon-chevron.svg" alt="mercury" />
       </li>
       <li>
         <div class="planet-color-circle"></div>
         <div class="planet-name">Venus</div>
-        <div class="shevron">></div>
+        <img class="chevron" src="@/assets/icon-chevron.svg" alt="mercury" />
       </li>
       <li>
         <div class="planet-color-circle"></div>
         <div class="planet-name">Earth</div>
-        <div class="shevron">></div>
+        <img class="chevron" src="@/assets/icon-chevron.svg" alt="mercury" />
       </li>
       <li>
         <div class="planet-color-circle"></div>
         <div class="planet-name">Mars</div>
-        <div class="shevron">></div>
+        <img class="chevron" src="@/assets/icon-chevron.svg" alt="mercury" />
       </li>
       <li>
         <div class="planet-color-circle"></div>
         <div class="planet-name">Jupiter</div>
-        <div class="shevron">></div>
+        <img class="chevron" src="@/assets/icon-chevron.svg" alt="mercury" />
       </li>
       <li>
         <div class="planet-color-circle"></div>
         <div class="planet-name">Saturn</div>
-        <div class="shevron">></div>
+        <img class="chevron" src="@/assets/icon-chevron.svg" alt="mercury" />
       </li>
       <li>
         <div class="planet-color-circle"></div>
         <div class="planet-name">Uranus</div>
-        <div class="shevron">></div>
+        <img class="chevron" src="@/assets/icon-chevron.svg" alt="mercury" />
       </li>
       <li>
         <div class="planet-color-circle"></div>
         <div class="planet-name">Neptune</div>
-        <div class="shevron">></div>
+        <img class="chevron" src="@/assets/icon-chevron.svg" alt="mercury" />
       </li>
     </ul>
   </div>
@@ -82,7 +82,7 @@ export default {
   width: 90%;
   max-width: 327px;
   margin: 2vh auto;
-  background: black;
+  background: var(--background-color);
 }
 /* Navigation bar with brand and hamburder menu */
 #navbar {
@@ -90,7 +90,7 @@ export default {
   padding-bottom: 3.5rem;
   position: relative;
   height: 36px;
-  border-bottom: 1px solid var(--base-color);
+  border-bottom: 1px solid var(--base-color-transparent);
 }
 #navbar #brand {
   font-size: 1.75rem;
@@ -139,16 +139,17 @@ export default {
 /* Navigation list */
 #nav-items {
   margin-top: 0;
-  padding: 3rem 0;
-  display: grid;
-  grid-template-columns: 1fr;
-  grid-template-rows: repeat(8, 1rem);
-  grid-row-gap: 3.5rem;
+  padding: 1.8rem 0;
 }
+
 #nav-items > li {
   display: grid;
-  grid-template-columns: 20px 75% 20px;
-  grid-column-gap: 1rem;
+  grid-template-columns: minmax(20px, 1fr) 14fr minmax(20px, 1fr);
+  padding: 1.8rem 0;
+  border-bottom: 1px solid var(--base-color-transparent);
+}
+li:nth-child(8) {
+  border-bottom: none !important;
 }
 .planet-color-circle {
   border-radius: 50%;
@@ -176,5 +177,12 @@ li:nth-child(7) .planet-color-circle {
 }
 li:nth-child(8) .planet-color-circle {
   background: var(--neptune-color);
+}
+.planet-name {
+  padding-left: 1rem;
+}
+img.chevron {
+  width: 50%;
+  justify-self: right;
 }
 </style>

@@ -22,6 +22,7 @@ export default {
 /* Variables */
 :root {
   --base-color: #e5eff5;
+  --base-color-transparent: rgba(229, 239, 245, 0.25);
   --background-color: #070724;
   --mercury-color: #419ebb;
   --venus-color: #eda249;
