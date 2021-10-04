@@ -22,44 +22,61 @@
     </div>
     <ul class="nav" id="nav-items" v-if="!isHidden">
       <li>
-        <div class="planet-color-circle"></div>
-        <div class="planet-name">Mercury</div>
-        <img class="chevron" src="@/assets/icon-chevron.svg" alt="mercury" />
+        <router-link to="/">
+          <div class="planet-color-circle"></div>
+          <div class="planet-name">Mercury</div>
+          <img class="chevron" src="@/assets/icon-chevron.svg" alt="mercury" />
+        </router-link>
+      </li>
+
+      <li>
+        <router-link to="/venus">
+          <div class="planet-color-circle"></div>
+          <div class="planet-name">Venus</div>
+          <img class="chevron" src="@/assets/icon-chevron.svg" alt="venus" />
+        </router-link>
       </li>
       <li>
-        <div class="planet-color-circle"></div>
-        <div class="planet-name">Venus</div>
-        <img class="chevron" src="@/assets/icon-chevron.svg" alt="mercury" />
+        <router-link to="/earth">
+          <div class="planet-color-circle"></div>
+          <div class="planet-name">Earth</div>
+          <img class="chevron" src="@/assets/icon-chevron.svg" alt="earth" />
+        </router-link>
       </li>
       <li>
-        <div class="planet-color-circle"></div>
-        <div class="planet-name">Earth</div>
-        <img class="chevron" src="@/assets/icon-chevron.svg" alt="mercury" />
+        <router-link to="/mars">
+          <div class="planet-color-circle"></div>
+          <div class="planet-name">Mars</div>
+          <img class="chevron" src="@/assets/icon-chevron.svg" alt="mars" />
+        </router-link>
       </li>
       <li>
-        <div class="planet-color-circle"></div>
-        <div class="planet-name">Mars</div>
-        <img class="chevron" src="@/assets/icon-chevron.svg" alt="mercury" />
+        <router-link to="/jupiter">
+          <div class="planet-color-circle"></div>
+          <div class="planet-name">Jupiter</div>
+          <img class="chevron" src="@/assets/icon-chevron.svg" alt="jupiter" />
+        </router-link>
       </li>
       <li>
-        <div class="planet-color-circle"></div>
-        <div class="planet-name">Jupiter</div>
-        <img class="chevron" src="@/assets/icon-chevron.svg" alt="mercury" />
+        <router-link to="/saturn">
+          <div class="planet-color-circle"></div>
+          <div class="planet-name">Saturn</div>
+          <img class="chevron" src="@/assets/icon-chevron.svg" alt="saturn" />
+        </router-link>
       </li>
       <li>
-        <div class="planet-color-circle"></div>
-        <div class="planet-name">Saturn</div>
-        <img class="chevron" src="@/assets/icon-chevron.svg" alt="mercury" />
+        <router-link to="/uranus">
+          <div class="planet-color-circle"></div>
+          <div class="planet-name">Uranus</div>
+          <img class="chevron" src="@/assets/icon-chevron.svg" alt="uranus" />
+        </router-link>
       </li>
       <li>
-        <div class="planet-color-circle"></div>
-        <div class="planet-name">Uranus</div>
-        <img class="chevron" src="@/assets/icon-chevron.svg" alt="mercury" />
-      </li>
-      <li>
-        <div class="planet-color-circle"></div>
-        <div class="planet-name">Neptune</div>
-        <img class="chevron" src="@/assets/icon-chevron.svg" alt="mercury" />
+        <router-link to="/neptune">
+          <div class="planet-color-circle"></div>
+          <div class="planet-name">Neptune</div>
+          <img class="chevron" src="@/assets/icon-chevron.svg" alt="neptune" />
+        </router-link>
       </li>
     </ul>
   </div>
@@ -70,8 +87,25 @@ export default {
   name: "NavBar",
   data() {
     return {
-      isHidden: true,
+      isHidden: true, // expand and show the list of the menu items
     };
+  },
+  watch: {
+    /* If any of the menu items is clicked, the menu is hidden and the hamburger "button" changes back its standard look
+    (horizontal lines instead of 'X') */
+    $route() {
+      this.isHidden = !this.isHidden; // otherwise the hamburger menu would need a double click to list the links
+      document.getElementById("nav-items").style.display = "none";
+      document
+        .getElementById("hamburger-line-top")
+        .classList.remove("hamburger-line-top-transform");
+      document
+        .getElementById("hamburger-line-middle")
+        .classList.remove("hamburger-line-middle-transform");
+      document
+        .getElementById("hamburger-line-bottom")
+        .classList.remove("hamburger-line-bottom-transform");
+    },
   },
 };
 </script>
@@ -103,6 +137,9 @@ export default {
   right: 0;
   width: 24px;
   height: 36px;
+}
+#navbar #hamburger:hover {
+  cursor: pointer;
 }
 #navbar .hamburger-lines {
   content: "";
@@ -142,7 +179,7 @@ export default {
   padding: 1.8rem 0;
 }
 
-#nav-items > li {
+#nav-items > li > a {
   display: grid;
   grid-template-columns: minmax(20px, 1fr) 14fr minmax(20px, 1fr);
   padding: 1.8rem 0;
@@ -154,28 +191,36 @@ li:nth-child(8) {
 .planet-color-circle {
   border-radius: 50%;
 }
-li:first-child .planet-color-circle {
+li:first-child .planet-color-circle,
+li:first-child:hover {
   background: var(--mercury-color);
 }
-li:nth-child(2) .planet-color-circle {
+li:nth-child(2) .planet-color-circle,
+li:nth-child(2):hover {
   background: var(--venus-color);
 }
-li:nth-child(3) .planet-color-circle {
+li:nth-child(3) .planet-color-circle,
+li:nth-child(3):hover {
   background: var(--earth-color);
 }
-li:nth-child(4) .planet-color-circle {
+li:nth-child(4) .planet-color-circle,
+li:nth-child(4):hover {
   background: var(--mars-color);
 }
-li:nth-child(5) .planet-color-circle {
+li:nth-child(5) .planet-color-circle,
+li:nth-child(5):hover {
   background: var(--jupiter-color);
 }
-li:nth-child(6) .planet-color-circle {
+li:nth-child(6) .planet-color-circle,
+li:nth-child(6):hover {
   background: var(--saturn-color);
 }
-li:nth-child(7) .planet-color-circle {
+li:nth-child(7) .planet-color-circle,
+li:nth-child(7):hover {
   background: var(--uranus-color);
 }
-li:nth-child(8) .planet-color-circle {
+li:nth-child(8) .planet-color-circle,
+li:nth-child(8):hover {
   background: var(--neptune-color);
 }
 .planet-name {

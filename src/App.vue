@@ -42,6 +42,8 @@ body {
   color: var(--base-color);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background: url("assets/background-stars.svg"), var(--background-color);
+  background-attachment: fixed;
 }
 
 h1,
