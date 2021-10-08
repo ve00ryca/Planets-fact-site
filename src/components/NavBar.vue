@@ -2,25 +2,33 @@
   <div>
     <div class="nav" id="navbar">
       <router-link to="/" id="brand">THE PLANETS</router-link>
-      <div id="hamburger" @click="isHidden = !isHidden">
+      <div
+        id="hamburgerButton"
+        @click="isHiddenHamburgerMenu = !isHiddenHamburgerMenu"
+        v-if="!isHiddenHamburgerButton"
+      >
         <span
           class="hamburger-lines"
-          :class="{ 'hamburger-line-top-transform': !isHidden }"
+          :class="{ 'hamburger-line-top-transform': !isHiddenHamburgerMenu }"
           id="hamburger-line-top"
         ></span
         ><span
           class="hamburger-lines"
-          :class="{ 'hamburger-line-middle-transform': !isHidden }"
+          :class="{ 'hamburger-line-middle-transform': !isHiddenHamburgerMenu }"
           id="hamburger-line-middle"
         ></span
         ><span
           class="hamburger-lines"
-          :class="{ 'hamburger-line-bottom-transform': !isHidden }"
+          :class="{ 'hamburger-line-bottom-transform': !isHiddenHamburgerMenu }"
           id="hamburger-line-bottom"
         ></span>
       </div>
     </div>
-    <ul class="nav" id="nav-items" v-if="!isHidden">
+    <ul
+      class="nav"
+      id="hamburgerMenu"
+      v-if="!isHiddenHamburgerButton && !isHiddenHamburgerMenu"
+    >
       <li>
         <router-link to="/">
           <div class="planet-color-circle"></div>
@@ -87,15 +95,17 @@ export default {
   name: "NavBar",
   data() {
     return {
-      isHidden: true, // expand and show the list of the menu items
+      isHiddenHamburgerButton: false,
+      isHiddenHamburgerMenu: true, // expand and show the list of the menu items
     };
   },
   watch: {
-    /* If any of the menu items is clicked, the menu is hidden and the hamburger "button" changes back its standard look
-    (horizontal lines instead of 'X') */
+    /* If any of the menu items is clicked, the hamburger menu is hidden and the hamburger "button" changes back its
+    standard look (horizontal lines instead of 'X') */
     $route() {
-      this.isHidden = !this.isHidden; // otherwise the hamburger menu would need a double click to list the links
-      document.getElementById("nav-items").style.display = "none";
+      /*  value must be set here as well; otherwise, in order for the hamb. menu to be shown again, the hamburger button
+      would need to be double clicked: */
+      this.isHiddenHamburgerMenu = !this.isHiddenHamburgerMenu;
       document
         .getElementById("hamburger-line-top")
         .classList.remove("hamburger-line-top-transform");
@@ -105,6 +115,27 @@ export default {
       document
         .getElementById("hamburger-line-bottom")
         .classList.remove("hamburger-line-bottom-transform");
+    },
+  },
+
+  /** Hide the hamburger button on tablet and desktop devices */
+  mounted() {
+    this.$nextTick(() => {
+      window.addEventListener("resize", this.onResize);
+    });
+  },
+  /** Hide the hamburger button on tablet and desktop devices */
+  beforeDestroy() {
+    window.removeEventListener("resize", this.onResize);
+  },
+  /** Hide the hamburger button on tablet and desktop devices */
+  methods: {
+    onResize() {
+      if (window.innerWidth >= 768) {
+        this.isHiddenHamburgerButton = true;
+      } else {
+        this.isHiddenHamburgerButton = false;
+      }
     },
   },
 };
@@ -118,7 +149,7 @@ export default {
   margin: 2vh auto;
   background: var(--background-color);
 }
-/* Navigation bar with brand and hamburder menu */
+/* Navigation bar with brand and hamburder button */
 #navbar {
   margin-bottom: 0;
   padding-bottom: 3.5rem;
@@ -131,14 +162,14 @@ export default {
   letter-spacing: -1.05px;
   text-align: left;
 }
-#navbar #hamburger {
+#navbar #hamburgerButton {
   position: absolute;
   top: 0;
   right: 0;
   width: 24px;
   height: 36px;
 }
-#navbar #hamburger:hover {
+#navbar #hamburgerButton:hover {
   cursor: pointer;
 }
 #navbar .hamburger-lines {
@@ -173,13 +204,13 @@ export default {
   top: 50% !important;
 }
 
-/* Navigation list */
-#nav-items {
+/* Hamburger menu */
+#hamburgerMenu {
   margin-top: 0;
   padding: 1.8rem 0;
 }
 
-#nav-items > li > a {
+#hamburgerMenu > li > a {
   display: grid;
   grid-template-columns: minmax(20px, 1fr) 14fr minmax(20px, 1fr);
   padding: 1.8rem 0;

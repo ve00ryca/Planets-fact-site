@@ -46,6 +46,17 @@ body {
   background-attachment: fixed;
 }
 
+#app {
+  width: 100%;
+  max-width: 500px; /* mobile first */
+  margin: 0 auto;
+  padding: 1em;
+}
+
+.planets {
+  margin: 0 auto;
+}
+
 h1,
 h2,
 h3,
@@ -92,9 +103,11 @@ button span {
   letter-spacing: 2.57143px;
   opacity: 0.5;
 }
-h4 {
+h4,
+p {
   font-size: 0.6875rem;
   letter-spacing: 1px;
+  line-height: 22px;
 }
 
 a {
@@ -103,5 +116,25 @@ a {
 }
 a .router-link-exact-active:not(#brand) {
   color: #fff;
+}
+/** The views */
+section {
+  display: grid;
+}
+.view {
+  margin-top: 15vh;
+  display: grid;
+  text-align: center;
+  justify-items: center;
+  /* grid-template-rows: 1fr 1fr 1fr; */
+  grid-row-gap: 15vh;
+}
+.view-article p {
+  margin-top: 10vh;
+}
+.view-article span {
+  color: var(--base-color-transparent);
+}
+#info {
 }
 </style>
