@@ -29,72 +29,32 @@
       id="hamburgerMenu"
       v-if="!isHiddenHamburgerButton && !isHiddenHamburgerMenu"
     >
-      <li>
-        <router-link to="/">
+      <li
+        v-for="planet in planets"
+        :key="planet.name"
+        :planet_name="planet.name"
+      >
+        <router-link :to="getPath(planet.name)" :planet_name="planet.name">
           <div class="planet-color-circle"></div>
-          <div class="planet-name">Mercury</div>
-          <img class="chevron" src="@/assets/icon-chevron.svg" alt="mercury" />
+          <div class="planet-name">{{ planet.name }}</div>
+          <img class="chevron" src="@/assets/icon-chevron.svg" />
         </router-link>
-      </li>
-
-      <li>
-        <router-link to="/venus">
-          <div class="planet-color-circle"></div>
-          <div class="planet-name">Venus</div>
-          <img class="chevron" src="@/assets/icon-chevron.svg" alt="venus" />
-        </router-link>
-      </li>
-      <li>
-        <router-link to="/earth">
-          <div class="planet-color-circle"></div>
-          <div class="planet-name">Earth</div>
-          <img class="chevron" src="@/assets/icon-chevron.svg" alt="earth" />
-        </router-link>
-      </li>
-      <li>
-        <router-link to="/mars">
-          <div class="planet-color-circle"></div>
-          <div class="planet-name">Mars</div>
-          <img class="chevron" src="@/assets/icon-chevron.svg" alt="mars" />
-        </router-link>
-      </li>
-      <li>
-        <router-link to="/jupiter">
-          <div class="planet-color-circle"></div>
-          <div class="planet-name">Jupiter</div>
-          <img class="chevron" src="@/assets/icon-chevron.svg" alt="jupiter" />
-        </router-link>
-      </li>
-      <li>
-        <router-link to="/saturn">
-          <div class="planet-color-circle"></div>
-          <div class="planet-name">Saturn</div>
-          <img class="chevron" src="@/assets/icon-chevron.svg" alt="saturn" />
-        </router-link>
-      </li>
-      <li>
-        <router-link to="/uranus">
-          <div class="planet-color-circle"></div>
-          <div class="planet-name">Uranus</div>
-          <img class="chevron" src="@/assets/icon-chevron.svg" alt="uranus" />
-        </router-link>
-      </li>
-      <li>
-        <router-link to="/neptune">
-          <div class="planet-color-circle"></div>
-          <div class="planet-name">Neptune</div>
-          <img class="chevron" src="@/assets/icon-chevron.svg" alt="neptune" />
-        </router-link>
+        <!--  <router-link
+          :to="{ name: 'Home', params: { planet_name: planet.name } }"
+          :planet_name="planet.name"
+        > -->
       </li>
     </ul>
   </div>
 </template>
 
 <script>
+import planetsService from "@/services/planetsService.js";
 export default {
   name: "NavBar",
   data() {
     return {
+      planets: [],
       isHiddenHamburgerButton: false,
       isHiddenHamburgerMenu: true, // expand and show the list of the menu items
     };
@@ -137,6 +97,20 @@ export default {
         this.isHiddenHamburgerButton = false;
       }
     },
+    /* The path equals the planet name for all planet view except for Mercury, where the path is the home page */
+    getPath(name) {
+      return name == "Mercury" ? "/" : "/" + name;
+    },
+  },
+  created() {
+    planetsService
+      .getPlanets()
+      .then((response) => {
+        this.planets = response.data;
+      })
+      .catch((error) => {
+        console.log(`An error occured: ${error}`);
+      });
   },
 };
 </script>
@@ -144,8 +118,8 @@ export default {
 <style scoped>
 /* Navigation bar and navigation list for mobile devices */
 .nav {
-  width: 90%;
-  max-width: 327px;
+  width: 100%;
+  padding: 0 1.5rem; /* 24px */
   margin: 2vh auto;
   background: var(--background-color);
 }
@@ -158,7 +132,8 @@ export default {
   border-bottom: 1px solid var(--base-color-transparent);
 }
 #navbar #brand {
-  font-size: 1.75rem;
+  font-size: 1.75rem; /* 28px */
+  font-weight: 400;
   letter-spacing: -1.05px;
   text-align: left;
 }

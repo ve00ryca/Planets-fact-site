@@ -6,6 +6,7 @@
 </template>
 <script>
 import NavBar from "@/components/NavBar.vue";
+
 export default {
   components: {
     NavBar,
@@ -19,7 +20,8 @@ export default {
 /* Google fonts */
 @import url("https://fonts.googleapis.com/css2?family=Antonio:wght@500&family=Spartan:wght@400;700&display=swap");
 
-/* Variables */
+/* Base styles */
+
 :root {
   --base-color: #e5eff5;
   --base-color-transparent: rgba(229, 239, 245, 0.25);
@@ -34,7 +36,6 @@ export default {
   --neptune-color: #2d68f0;
 }
 
-/* Base styles */
 html,
 body {
   font-family: "Spartan", sans-serif;
@@ -45,71 +46,15 @@ body {
   background: url("assets/background-stars.svg"), var(--background-color);
   background-attachment: fixed;
 }
-
 #app {
   width: 100%;
-  max-width: 500px; /* mobile first */
+  max-width: 375px; /* mobile first */
   margin: 0 auto;
   padding: 1em;
 }
-
 .planets {
   margin: 0 auto;
 }
-
-h1,
-h2,
-h3,
-h4,
-button,
-#brand,
-li {
-  text-transform: uppercase;
-}
-h1,
-h2,
-#brand {
-  font-family: Antonio, sans-serif;
-  font-weight: 500;
-}
-h1 {
-  font-size: 5rem;
-}
-h2 {
-  font-size: 2.5rem;
-  letter-spacing: -1.5px;
-}
-h3,
-h4,
-button,
-li {
-  font-family: Spartan, sans-serif;
-  font-weight: 700;
-}
-h3,
-button {
-  font-size: 0.75rem;
-  letter-spacing: 2.6px;
-}
-button {
-  font-family: Spartan, sans-serif;
-  font-weight: 500;
-  mix-blend-mode: normal;
-  opacity: 0.2;
-  border: 1px solid var(--base-color);
-}
-button span {
-  font-weight: 700;
-  letter-spacing: 2.57143px;
-  opacity: 0.5;
-}
-h4,
-p {
-  font-size: 0.6875rem;
-  letter-spacing: 1px;
-  line-height: 22px;
-}
-
 a {
   color: var(--base-color);
   text-decoration: none;
@@ -117,24 +62,130 @@ a {
 a .router-link-exact-active:not(#brand) {
   color: #fff;
 }
-/** The views */
+h1,
+h4,
+strong,
+button,
+#brand,
+li {
+  text-transform: uppercase;
+}
+h1,
+#brand,
+strong {
+  font-family: Antonio, sans-serif;
+}
+
+/* Planet component */
+
 section {
   display: grid;
 }
-.view {
-  margin-top: 15vh;
-  display: grid;
+h4,
+button,
+li {
+  font-family: Spartan, sans-serif;
+  font-weight: 700;
+}
+
+/* ----------Section planet-------------- */
+.planet {
+  position: relative;
+  grid-row-gap: 6rem;
   text-align: center;
-  justify-items: center;
-  /* grid-template-rows: 1fr 1fr 1fr; */
-  grid-row-gap: 15vh;
 }
-.view-article p {
-  margin-top: 10vh;
+/* buttons area */
+.buttons {
+  display: grid;
+  height: 3rem;
+  grid-template-columns: repeat(3, 5rem);
+  justify-content: space-around;
+  border-bottom: 1px solid var(--base-color-transparent);
 }
-.view-article span {
+button {
+  font-size: 0.5625rem; /* 9px */
+  line-height: 0.625rem; /* 10px */
+  text-align: center;
+  letter-spacing: 0.1rem; /* 1.92857px */
+  border: none;
+  background: transparent;
+  color: var(--base-color);
+  opacity: 0.5; /*  */
+}
+/* button:hover {
+  cursor: pointer;
+  color: var(--base-color);
+  background: var(--base-color-transparent);
+  opacity: 1;
+} */
+button:focus-visible {
+  border: none;
+}
+/* image area */
+.planet img {
+  margin: 0 auto;
+}
+/* planet description area */
+.planet-description {
+  padding: 0 1.5rem; /* 24px */
+}
+.planet-description h1 {
+  font-size: 2.5rem;
+  font-weight: 400;
+}
+.planet-description p {
+  font-size: 0.6875rem; /* 11px */
+  letter-spacing: 1px;
+  line-height: 1.375rem; /* 22px */
+}
+.planet-description p {
+  margin-top: 2rem;
+  margin-bottom: 2.5rem;
+}
+.planet-description p:last-child {
+  margin-bottom: 0;
+}
+.planet-description p a {
+  font-weight: 700;
+  text-decoration: underline;
+  opacity: 0.5;
+}
+.planet-description span {
+  font-size: 0.75rem; /* 12px */
   color: var(--base-color-transparent);
 }
-#info {
+.planet-description p img {
+  margin-left: 5px;
+  margin-bottom: -2px;
+}
+
+/* ---------Section planet statistics---------*/
+.planet-statistics {
+  margin-top: 1.75rem;
+  padding: 0 1.5rem; /* 24px */
+  display: grid;
+  grid-row-gap: 0.5rem;
+}
+.planet-statistics div {
+  padding: 0 1.5rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  height: 3rem;
+  align-items: center;
+  height: 3rem;
+  border: 1px solid var(--base-color-transparent);
+}
+.planet-statistics div h4 {
+  font-size: 0.5rem; /* 8px */
+  line-height: 1rem; /* 16px */
+  justify-self: start;
+  opacity: 0.5;
+}
+.planet-statistics div strong {
+  font-size: 1.25rem; /* 20px */
+  font-weight: 400;
+  line-height: 1.625rem; /* 26px */
+  letter-spacing: -0.75px;
+  justify-self: end;
 }
 </style>

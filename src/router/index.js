@@ -13,6 +13,7 @@ Vue.use(VueRouter);
 
 const routes = [
   {
+    // path: "/:planet_name",
     path: "/",
     name: "Home",
     component: Home,
