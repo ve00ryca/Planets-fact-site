@@ -24,6 +24,7 @@
         ></span>
       </div>
     </div>
+    <!-- navigation for mobile devices -->
     <ul
       class="nav"
       id="hamburgerMenu"
@@ -43,6 +44,22 @@
           :to="{ name: 'Home', params: { planet_name: planet.name } }"
           :planet_name="planet.name"
         > -->
+      </li>
+    </ul>
+    <!-- navigation for tablet and desktop devices -->
+    <ul
+      class="nav"
+      id="desktopNav"
+      v-if="isHiddenHamburgerButton && isHiddenHamburgerMenu"
+    >
+      <li
+        v-for="planet in planets"
+        :key="planet.name"
+        :planet_name="planet.name"
+      >
+        <router-link :to="getPath(planet.name)" :planet_name="planet.name">
+          {{ planet.name }}
+        </router-link>
       </li>
     </ul>
   </div>
@@ -81,16 +98,16 @@ export default {
   /** Hide the hamburger button on tablet and desktop devices */
   mounted() {
     this.$nextTick(() => {
-      window.addEventListener("resize", this.onResize);
+      window.addEventListener("resize", this.toggleHamburgerButton);
     });
   },
   /** Hide the hamburger button on tablet and desktop devices */
   beforeDestroy() {
-    window.removeEventListener("resize", this.onResize);
+    window.removeEventListener("resize", this.toggleHamburgerButton);
   },
   /** Hide the hamburger button on tablet and desktop devices */
   methods: {
-    onResize() {
+    toggleHamburgerButton() {
       if (window.innerWidth >= 768) {
         this.isHiddenHamburgerButton = true;
       } else {
@@ -111,12 +128,13 @@ export default {
       .catch((error) => {
         console.log(`An error occured: ${error}`);
       });
+    this.toggleHamburgerButton();
   },
 };
 </script>
 
 <style scoped>
-/* Navigation bar and navigation list for mobile devices */
+/* Navigation for mobile devices */
 .nav {
   width: 100%;
   padding: 0 1.5rem; /* 24px */
@@ -235,5 +253,42 @@ li:nth-child(8):hover {
 img.chevron {
   width: 50%;
   justify-self: right;
+}
+/* Tablet and desktop design */
+@media (min-width: 768px) {
+  #navbar {
+    border: none;
+    text-align: center;
+  }
+  #desktopNav {
+    height: 3.6rem;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(8, 1fr);
+    align-items: center;
+    justify-items: center;
+    border-bottom: 1px solid var(--base-color-transparent);
+  }
+  #desktopNav li {
+    width: 100%;
+    height: 100%;
+    font-size: 0.7rem; /* 11px */
+    line-height: 1.6rem; /* 25px */
+    text-align: center;
+    padding: 1.05rem;
+  }
+  #desktopNav li .router-link-exact-active:not(#brand),
+  #desktopNav li .router-link-active:not(#brand) {
+    opacity: 0.9 !important;
+  }
+  /*  #navbar #brand {
+    text-align: center;
+  }
+  #desktopNav a {
+    opacity: 0.7;
+  }
+  #desktopNav li:hover a {
+    opacity: 1;
+  } */
 }
 </style>

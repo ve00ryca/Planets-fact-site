@@ -75,117 +75,19 @@ h1,
 strong {
   font-family: Antonio, sans-serif;
 }
-
-/* Planet component */
-
-section {
-  display: grid;
-}
-h4,
-button,
-li {
-  font-family: Spartan, sans-serif;
-  font-weight: 700;
-}
-
-/* ----------Section planet-------------- */
-.planet {
-  position: relative;
-  grid-row-gap: 6rem;
-  text-align: center;
-}
-/* buttons area */
-.buttons {
-  display: grid;
-  height: 3rem;
-  grid-template-columns: repeat(3, 5rem);
-  justify-content: space-around;
-  border-bottom: 1px solid var(--base-color-transparent);
-}
-button {
-  font-size: 0.5625rem; /* 9px */
-  line-height: 0.625rem; /* 10px */
-  text-align: center;
-  letter-spacing: 0.1rem; /* 1.92857px */
-  border: none;
-  background: transparent;
-  color: var(--base-color);
-  opacity: 0.5; /*  */
-}
-/* button:hover {
-  cursor: pointer;
-  color: var(--base-color);
-  background: var(--base-color-transparent);
-  opacity: 1;
-} */
-button:focus-visible {
-  border: none;
-}
-/* image area */
-.planet img {
-  margin: 0 auto;
-}
-/* planet description area */
-.planet-description {
-  padding: 0 1.5rem; /* 24px */
-}
-.planet-description h1 {
-  font-size: 2.5rem;
-  font-weight: 400;
-}
-.planet-description p {
-  font-size: 0.6875rem; /* 11px */
-  letter-spacing: 1px;
-  line-height: 1.375rem; /* 22px */
-}
-.planet-description p {
-  margin-top: 2rem;
-  margin-bottom: 2.5rem;
-}
-.planet-description p:last-child {
-  margin-bottom: 0;
-}
-.planet-description p a {
-  font-weight: 700;
-  text-decoration: underline;
-  opacity: 0.5;
-}
-.planet-description span {
-  font-size: 0.75rem; /* 12px */
-  color: var(--base-color-transparent);
-}
-.planet-description p img {
-  margin-left: 5px;
-  margin-bottom: -2px;
-}
-
-/* ---------Section planet statistics---------*/
-.planet-statistics {
-  margin-top: 1.75rem;
-  padding: 0 1.5rem; /* 24px */
-  display: grid;
-  grid-row-gap: 0.5rem;
-}
-.planet-statistics div {
-  padding: 0 1.5rem;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  height: 3rem;
-  align-items: center;
-  height: 3rem;
-  border: 1px solid var(--base-color-transparent);
-}
-.planet-statistics div h4 {
-  font-size: 0.5rem; /* 8px */
-  line-height: 1rem; /* 16px */
-  justify-self: start;
-  opacity: 0.5;
-}
-.planet-statistics div strong {
-  font-size: 1.25rem; /* 20px */
-  font-weight: 400;
-  line-height: 1.625rem; /* 26px */
-  letter-spacing: -0.75px;
-  justify-self: end;
+/* tablet and desktop design */
+@media (min-width: 768px) {
+  #app {
+    max-width: 768px;
+  }
+  #navbar #brand {
+    text-align: center;
+  }
+  #desktopNav a {
+    opacity: 0.7;
+  }
+  #desktopNav li:hover a {
+    opacity: 1;
+  }
 }
 </style>
