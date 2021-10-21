@@ -47,11 +47,7 @@
       </li>
     </ul>
     <!-- navigation for tablet and desktop devices -->
-    <ul
-      class="nav"
-      id="desktopNav"
-      v-if="isHiddenHamburgerButton && isHiddenHamburgerMenu"
-    >
+    <ul class="nav" id="desktopNav" v-if="isHiddenHamburgerButton">
       <li
         v-for="planet in planets"
         :key="planet.name"
@@ -254,10 +250,13 @@ img.chevron {
   width: 50%;
   justify-self: right;
 }
-/* Tablet and desktop design */
+/* Tablet design */
 @media (min-width: 768px) {
   #navbar {
     border: none;
+    text-align: center;
+  }
+  #navbar #brand {
     text-align: center;
   }
   #desktopNav {
@@ -277,18 +276,29 @@ img.chevron {
     text-align: center;
     padding: 1.05rem;
   }
-  #desktopNav li .router-link-exact-active:not(#brand),
-  #desktopNav li .router-link-active:not(#brand) {
-    opacity: 0.9 !important;
-  }
-  /*  #navbar #brand {
-    text-align: center;
-  }
   #desktopNav a {
     opacity: 0.7;
   }
   #desktopNav li:hover a {
     opacity: 1;
-  } */
+  }
+  #desktopNav li .router-link-exact-active:not(#brand) {
+    opacity: 0.9 !important;
+  }
+}
+/* Tablet design */
+@media (min-width: 768px) {
+  #navbar #brand {
+    text-align: left;
+  }
+  #desktopNav {
+    border: none;
+  }
+}
+/* Desktop design */
+@media (min-width: 1080px) {
+  #brand {
+    text-align: left;
+  }
 }
 </style>

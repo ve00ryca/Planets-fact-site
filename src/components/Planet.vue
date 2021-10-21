@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="planet-container">
     <section class="planet">
       <div class="buttons">
         <button
@@ -516,6 +516,9 @@ button:focus-visible {
 .btnVenusMobile {
   border-bottom: 4px solid var(--venus-color);
 }
+.btnEarthMobile {
+  border-bottom: 4px solid var(--earth-color);
+}
 .btnMarsMobile {
   border-bottom: 4px solid var(--mars-color);
 }
@@ -771,6 +774,101 @@ button:focus-visible {
   .planet-statistics div strong {
     font-size: 1.5rem !important; /* 24px */
     justify-self: start;
+  }
+}
+/* Desktop design */
+@media (min-width: 1080px) {
+  main {
+    margin: 0 auto;
+    width: 80%;
+    max-width: 1000px;
+  }
+  .planet {
+    grid-row-gap: 3rem;
+    grid-column-gap: 3rem;
+  }
+  .buttons,
+  .planet-description {
+    justify-self: end;
+  }
+  .buttons {
+    width: 21.875rem; /* 350px */
+    margin-top: 0;
+    margin-right: 0;
+    width: 21.875rem; /* 350px */
+  }
+  button {
+    font-size: 0.75rem; /* 12px */
+  }
+  button span {
+    font-size: 0.75rem; /* 12px */
+    color: var(--base-color-transparent);
+  }
+
+  .planet-description {
+    width: 21.875rem; /* 350px */
+    padding: 0;
+    grid-area: 1/2/2/3;
+  }
+  .planet-description h1 {
+    font-size: 5rem !important; /* 80px */
+  }
+  .planet-description p,
+  .planet-description p a,
+  .planet-description span {
+    font-size: 0.875rem; /* 14px */
+  }
+  .planet img {
+    grid-area: 1/1/3/2;
+    align-self: center;
+    margin-top: -5rem;
+  }
+  .imageMercury {
+    max-width: 19.125rem !important;
+  }
+  .imageVenus {
+    max-width: 25rem !important;
+  }
+  .imageEarth {
+    max-width: 28.125rem !important;
+  }
+  .imageMars {
+    max-width: 21rem !important;
+  }
+  .imageJupiter {
+    max-width: 36.375rem !important;
+  }
+  .imageSaturn {
+    max-width: 38rem !important;
+  }
+  .imageUranus {
+    max-width: 28.625rem !important;
+  }
+  .imageNeptune {
+    max-width: 28.125rem !important;
+  }
+  /*   .imageGeology {
+    width: 8rem;
+  }
+  .imageGeologyMercury {
+    top: 6rem;
+  }
+  .imageGeologyVenus,
+  .imageGeologyEarth,
+  .imageGeologyMars {
+    top: 8rem !important;
+  }
+  .imageGeologySaturn {
+    top: 17.2rem !important;
+  }
+  .imageJupiter,
+  .imageGeologyUranus,
+  .imageGeologyNeptune {
+    top: 11rem;
+  } */
+  .planet-statistics {
+    grid-template-columns: repeat(4, 20%);
+    padding: 0;
   }
 }
 </style>

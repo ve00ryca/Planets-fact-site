@@ -75,19 +75,27 @@ h1,
 strong {
   font-family: Antonio, sans-serif;
 }
-/* tablet and desktop design */
+/* Tablet design */
 @media (min-width: 768px) {
   #app {
     max-width: 768px;
   }
-  #navbar #brand {
-    text-align: center;
+}
+/* Desktop design */
+@media (min-width: 1080px) {
+  #app,
+  .planets,
+  main {
+    width: 100%;
+    max-width: 1440px;
+    max-height: 100vh;
+    /* margin: 0 auto; */
   }
-  #desktopNav a {
-    opacity: 0.7;
-  }
-  #desktopNav li:hover a {
-    opacity: 1;
+  /* Navbar: merge brand and list */
+  #app > div:first-child {
+    display: grid;
+    grid-template-columns: 1fr 1.5fr;
+    border-bottom: 1px solid var(--base-color-transparent);
   }
 }
 </style>
