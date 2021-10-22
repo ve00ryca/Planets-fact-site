@@ -262,11 +262,12 @@ img.chevron {
   #desktopNav {
     height: 3.6rem;
     margin: 0 auto;
+    padding: 0;
     display: grid;
     grid-template-columns: repeat(8, 1fr);
     align-items: center;
     justify-items: center;
-    border-bottom: 1px solid var(--base-color-transparent);
+    border-bottom: none;
   }
   #desktopNav li {
     width: 100%;
@@ -277,6 +278,7 @@ img.chevron {
     padding: 1.05rem;
   }
   #desktopNav a {
+    padding-top: 1.2rem;
     opacity: 0.7;
   }
   #desktopNav li:hover a {
@@ -286,19 +288,37 @@ img.chevron {
     opacity: 0.9 !important;
   }
 }
-/* Tablet design */
-@media (min-width: 768px) {
+
+/* Desktop design */
+@media (min-width: 1080px) {
   #navbar #brand {
     text-align: left;
   }
-  #desktopNav {
-    border: none;
+  #desktopNav li:first-child .router-link-exact-active {
+    border-top: 4px solid var(--mercury-color) !important;
   }
-}
-/* Desktop design */
-@media (min-width: 1080px) {
-  #brand {
-    text-align: left;
+  #desktopNav li:nth-child(2) .router-link-exact-active {
+    border-top: 4px solid var(--venus-color) !important;
   }
+  #desktopNav li:nth-child(3) .router-link-exact-active {
+    border-top: 4px solid var(--earth-color);
+  }
+  #desktopNav li:nth-child(4) .router-link-exact-active {
+    border-top: 4px solid var(--mars-color);
+  }
+  #desktopNav li:nth-child(5) .router-link-exact-active {
+    border-top: 4px solid var(--jupiter-color);
+  }
+  #desktopNav li:nth-child(6) .router-link-exact-active {
+    border-top: 4px solid var(--saturn-color);
+  }
+  #desktopNav li:nth-child(7) .router-link-exact-active {
+    border-top: 4px solid var(--uranus-color);
+  }
+  #desktopNav li:nth-child(8) .router-link-exact-active {
+    border-top: 4px solid var(--neptune-color);
+  }
+  /*  #desktopNav li .router-link-exact-active:not(#brand) {
+border-top: ;  } */
 }
 </style>

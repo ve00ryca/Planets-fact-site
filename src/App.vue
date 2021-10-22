@@ -81,15 +81,19 @@ strong {
     max-width: 768px;
   }
 }
-/* Desktop design */
+/* Desktop design: calculates all sizes procentually in order to fit into 100vh heigth */
 @media (min-width: 1080px) {
   #app,
-  .planets,
-  main {
+  .planets {
     width: 100%;
     max-width: 1440px;
-    max-height: 100vh;
-    /* margin: 0 auto; */
+    margin: 0 auto;
+    /* max-height: 100vh; */
+  }
+  main {
+    width: 80%;
+    max-width: 1000px;
+    margin: 0 auto;
   }
   /* Navbar: merge brand and list */
   #app > div:first-child {

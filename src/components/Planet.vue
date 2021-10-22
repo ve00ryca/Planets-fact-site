@@ -52,6 +52,7 @@
           }"
         >
           <span v-if="buttonBackground">02</span>
+          <div class="btnAdditionalWord" v-if="buttonBackground">internal</div>
           structure
         </button>
         <button
@@ -79,6 +80,7 @@
         >
           <span v-if="buttonBackground">03</span>
           surface
+          <div class="btnAdditionalWord" v-if="buttonBackground">geology</div>
         </button>
       </div>
       <!-- src: in planetName the capital letter is replaced with lower case -->
@@ -492,10 +494,11 @@ button {
   line-height: 0.625rem; /* 10px */
   text-align: center;
   letter-spacing: 0.1rem; /* 1.92857px */
+  /*  color: var(--base-color);
+  opacity: 0.7; */
+  color: rgba(229, 239, 245, 0.5);
+  background: var(--background-color);
   border: none;
-  background: transparent;
-  color: var(--base-color);
-  opacity: 0.7;
 }
 button:hover {
   cursor: pointer;
@@ -572,6 +575,9 @@ button:focus-visible {
   margin: 0 auto;
   height: auto;
 }
+.planet img:not(.imageGeology) {
+  background: var(--background-color);
+}
 .imageMercury {
   width: 7rem;
 }
@@ -599,7 +605,6 @@ button:focus-visible {
 .imageGeology {
   position: absolute;
   top: 16rem;
-  width: 24%;
   width: 5rem;
 }
 .imageGeologyMercury,
@@ -615,6 +620,7 @@ button:focus-visible {
 /* planet description area */
 .planet-description {
   padding: 0 1.5rem; /* 24px */
+  background: var(--background-color);
 }
 .planet-description h1 {
   font-size: 2.5rem;
@@ -654,11 +660,11 @@ button:focus-visible {
 }
 .planet-statistics div {
   padding: 0 1.5rem;
+  height: 3rem;
   display: grid;
   grid-template-columns: 1fr 1fr;
-  height: 3rem;
   align-items: center;
-  height: 3rem;
+  background: var(--background-color);
   border: 1px solid var(--base-color-transparent);
 }
 .planet-statistics div h4 {
@@ -705,9 +711,13 @@ button:focus-visible {
   button span {
     margin: 0 1rem 0 1.25rem;
     font: "Spartan" 0.5rem;
+    color: rgba(229, 239, 245, 0.4);
   }
   .btnActive {
     border: none;
+  }
+  .btnAdditionalWord {
+    display: inline;
   }
   .planet img {
     grid-area: 1/1/2/3;
@@ -750,7 +760,7 @@ button:focus-visible {
   .imageGeologySaturn {
     top: 17.2rem !important;
   }
-  .imageJupiter,
+  .imageGologyJupiter,
   .imageGeologyUranus,
   .imageGeologyNeptune {
     top: 11rem;
@@ -778,11 +788,6 @@ button:focus-visible {
 }
 /* Desktop design */
 @media (min-width: 1080px) {
-  main {
-    margin: 0 auto;
-    width: 80%;
-    max-width: 1000px;
-  }
   .planet {
     grid-row-gap: 3rem;
     grid-column-gap: 3rem;
@@ -797,12 +802,10 @@ button:focus-visible {
     margin-right: 0;
     width: 21.875rem; /* 350px */
   }
-  button {
-    font-size: 0.75rem; /* 12px */
-  }
+  button,
   button span {
-    font-size: 0.75rem; /* 12px */
-    color: var(--base-color-transparent);
+    /* font-size: 0.75rem; */ /* 12px */
+    font-size: 75%;
   }
 
   .planet-description {
@@ -811,64 +814,75 @@ button:focus-visible {
     grid-area: 1/2/2/3;
   }
   .planet-description h1 {
-    font-size: 5rem !important; /* 80px */
+    font-size: 285% !important;
   }
   .planet-description p,
   .planet-description p a,
   .planet-description span {
-    font-size: 0.875rem; /* 14px */
+    font-size: 85% !important;
   }
   .planet img {
     grid-area: 1/1/3/2;
     align-self: center;
     margin-top: -5rem;
+    background: transparent;
   }
   .imageMercury {
-    max-width: 19.125rem !important;
+    width: 40% !important;
   }
   .imageVenus {
-    max-width: 25rem !important;
+    width: 55% !important;
   }
   .imageEarth {
-    max-width: 28.125rem !important;
+    width: 60% !important;
   }
   .imageMars {
-    max-width: 21rem !important;
+    width: 45% !important;
   }
   .imageJupiter {
-    max-width: 36.375rem !important;
+    width: 125% !important;
   }
   .imageSaturn {
-    max-width: 38rem !important;
+    width: 125% !important;
   }
   .imageUranus {
-    max-width: 28.625rem !important;
+    width: 95% !important;
   }
   .imageNeptune {
-    max-width: 28.125rem !important;
-  }
-  /*   .imageGeology {
-    width: 8rem;
-  }
-  .imageGeologyMercury {
-    top: 6rem;
-  }
-  .imageGeologyVenus,
-  .imageGeologyEarth,
-  .imageGeologyMars {
-    top: 8rem !important;
-  }
-  .imageGeologySaturn {
-    top: 17.2rem !important;
+    width: 92% !important;
   }
   .imageJupiter,
+  .imageSaturn {
+    padding-right: 3rem;
+  }
+  .imageGeologyMercury,
+  .imageGeologyVenus,
+  .imageGeologyEarth,
+  .imageGeologyMars,
+  .imageGeologyJupiter,
   .imageGeologyUranus,
   .imageGeologyNeptune {
-    top: 11rem;
-  } */
+    top: 58% !important;
+  }
+  .imageGeologySaturn {
+    width: 32% !important;
+    top: 72% !important;
+    right: 28% !important;
+  }
+  .imageGeologyJupiter {
+    width: 43% !important;
+    right: 21% !important;
+  }
+
   .planet-statistics {
     grid-template-columns: repeat(4, 20%);
     padding: 0;
+  }
+  .planet-statistics h4 {
+    font-size: 60% !important;
+  }
+  .planet-statistics strong {
+    font-size: 165% !important  ;
   }
 }
 </style>
