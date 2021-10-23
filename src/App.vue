@@ -66,6 +66,74 @@ body {
     background-position: 50% 0%;
   }
 }
+@-webkit-keyframes bgrAnim {
+  0% {
+    background-position: 50% 0%;
+  }
+  25% {
+    background-position: 100% 50%;
+  }
+  50% {
+    background-position: 50% 100%;
+  }
+  75% {
+    background-position: 0% 50%;
+  }
+  100% {
+    background-position: 50% 0%;
+  }
+}
+@-moz-keyframes bgrAnim {
+  0% {
+    background-position: 50% 0%;
+  }
+  25% {
+    background-position: 100% 50%;
+  }
+  50% {
+    background-position: 50% 100%;
+  }
+  75% {
+    background-position: 0% 50%;
+  }
+  100% {
+    background-position: 50% 0%;
+  }
+}
+@-o-keyframes bgrAnim {
+  0% {
+    background-position: 50% 0%;
+  }
+  25% {
+    background-position: 100% 50%;
+  }
+  50% {
+    background-position: 50% 100%;
+  }
+  75% {
+    background-position: 0% 50%;
+  }
+  100% {
+    background-position: 50% 0%;
+  }
+}
+@-ms-keyframes bgrAnim {
+  0% {
+    background-position: 50% 0%;
+  }
+  25% {
+    background-position: 100% 50%;
+  }
+  50% {
+    background-position: 50% 100%;
+  }
+  75% {
+    background-position: 0% 50%;
+  }
+  100% {
+    background-position: 50% 0%;
+  }
+}
 #app {
   width: 100%;
   max-width: 375px; /* mobile first */
@@ -95,6 +163,7 @@ h1,
 strong {
   font-family: Antonio, sans-serif;
 }
+
 /* Tablet design */
 @media (min-width: 768px) {
   #app {

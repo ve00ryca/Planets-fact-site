@@ -474,6 +474,10 @@ li {
   font-family: Spartan, sans-serif;
   font-weight: 700;
 }
+button,
+li {
+  transition: 0.1s ease;
+}
 
 /* ----------Section planet-------------- */
 .planet {
@@ -574,6 +578,51 @@ button:focus-visible {
 .planet img {
   margin: 0 auto;
   height: auto;
+  animation: imgAnim 1s linear;
+  -webkit-animation: imgAnim 1s linear;
+  -moz-animation: imgAnim 1s linear;
+  -o-animation: imgAnim 1s linear;
+  -ms-animation: imgAnim 1s linear;
+}
+@keyframes imgAnim {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@-webkit-keyframes imgAnim {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@-moz-keyframes imgAnim {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@-o-keyframes imgAnim {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@-o-keyframes imgAnim {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
 }
 .planet img:not(.imageGeology) {
   background: var(--background-color);
