@@ -578,13 +578,21 @@ button:focus-visible {
 .planet img {
   margin: 0 auto;
   height: auto;
-  animation: imgAnim 1s linear;
-  -webkit-animation: imgAnim 1s linear;
-  -moz-animation: imgAnim 1s linear;
-  -o-animation: imgAnim 1s linear;
-  -ms-animation: imgAnim 1s linear;
+  animation: opacityAnim 1s linear;
+  -webkit-animation: opacityAnim 1s linear;
+  -moz-animation: opacityAnim 1s linear;
+  -o-animation: opacityAnim 1s linear;
+  -ms-animation: opacityAnim 1s linear;
 }
-@keyframes imgAnim {
+
+.planet-description h1 {
+  animation: opacityAnim 1s linear;
+  -webkit-animation: opacityAnim 1s linear;
+  -moz-animation: opacityAnim 1s linear;
+  -o-animation: opacityAnim 1s linear;
+  -ms-animation: opacityAnim 1s linear;
+}
+@keyframes imAnim {
   0% {
     opacity: 0;
   }
@@ -592,7 +600,7 @@ button:focus-visible {
     opacity: 1;
   }
 }
-@-webkit-keyframes imgAnim {
+@-webkit-keyframes opacityAnim {
   0% {
     opacity: 0;
   }
@@ -600,7 +608,7 @@ button:focus-visible {
     opacity: 1;
   }
 }
-@-moz-keyframes imgAnim {
+@-moz-keyframes opacityAnim {
   0% {
     opacity: 0;
   }
@@ -608,7 +616,7 @@ button:focus-visible {
     opacity: 1;
   }
 }
-@-o-keyframes imgAnim {
+@-o-keyframes opacityAnim {
   0% {
     opacity: 0;
   }
@@ -616,7 +624,7 @@ button:focus-visible {
     opacity: 1;
   }
 }
-@-o-keyframes imgAnim {
+@-o-keyframes opacityAnim {
   0% {
     opacity: 0;
   }
