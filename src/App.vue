@@ -45,6 +45,26 @@ body {
   -moz-osx-font-smoothing: grayscale;
   background: url("assets/background-stars.svg"), var(--background-color);
   background-attachment: fixed;
+  animation: bgrAnim 100s linear infinite;
+  -webkit-animation: bgrAnim 100s linear infinite;
+  -moz-animation: bgrAnim 100s linear infinite;
+}
+@keyframes bgrAnim {
+  0% {
+    background-position: 50% 0%;
+  }
+  25% {
+    background-position: 100% 50%;
+  }
+  50% {
+    background-position: 50% 100%;
+  }
+  75% {
+    background-position: 0% 50%;
+  }
+  100% {
+    background-position: 50% 0%;
+  }
 }
 #app {
   width: 100%;
