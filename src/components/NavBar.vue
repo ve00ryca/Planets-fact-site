@@ -2,6 +2,7 @@
   <div>
     <div class="nav" id="navbar">
       <router-link to="/" id="brand">THE PLANETS</router-link>
+      <!-- navigation for mobile devices -->
       <div
         id="hamburgerButton"
         @click="isHiddenHamburgerMenu = !isHiddenHamburgerMenu"
@@ -24,36 +25,23 @@
         ></span>
       </div>
     </div>
-    <!-- navigation for mobile devices -->
     <ul
       class="nav"
       id="hamburgerMenu"
       v-if="!isHiddenHamburgerButton && !isHiddenHamburgerMenu"
     >
-      <li
-        v-for="planet in planets"
-        :key="planet.name"
-        :planet_name="planet.name"
-      >
-        <router-link :to="getPath(planet.name)" :planet_name="planet.name">
+      <li v-for="planet in planets" :key="planet.name">
+        <router-link :to="getPath(planet.name)">
           <div class="planet-color-circle"></div>
           <div class="planet-name">{{ planet.name }}</div>
           <img class="chevron" src="@/assets/icon-chevron.svg" />
         </router-link>
-        <!--  <router-link
-          :to="{ name: 'Home', params: { planet_name: planet.name } }"
-          :planet_name="planet.name"
-        > -->
       </li>
     </ul>
     <!-- navigation for tablet and desktop devices -->
     <ul class="nav" id="desktopNav" v-if="isHiddenHamburgerButton">
-      <li
-        v-for="planet in planets"
-        :key="planet.name"
-        :planet_name="planet.name"
-      >
-        <router-link :to="getPath(planet.name)" :planet_name="planet.name">
+      <li v-for="planet in planets" :key="planet.name">
+        <router-link :to="getPath(planet.name)">
           {{ planet.name }}
         </router-link>
       </li>
