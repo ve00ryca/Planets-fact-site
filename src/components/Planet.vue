@@ -96,7 +96,7 @@
         <p>{{ content }}</p>
         <p>
           <span>Source: </span>
-          <a :href="source"
+          <a :href="source" target="_blank"
             >Wikipedia <img src="../assets/icon-source.svg" alt=""
           /></a>
         </p>
