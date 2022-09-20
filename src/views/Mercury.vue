@@ -1,7 +1,7 @@
 <template>
   <div class="planets">
     <main>
-      <Planet planet_name="Earth" />
+      <Planet planet_name="Mercury" />
     </main>
   </div>
 </template>
@@ -9,7 +9,7 @@
 import Planet from "@/components/Planet.vue";
 
 export default {
-  name: "Earth",
+  name: "Mercury",
   components: {
     Planet,
   },

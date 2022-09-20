@@ -1,8 +1,8 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
 import Home from "../views/Home.vue";
+import Mercury from "../views/Mercury.vue";
 import Venus from "../views/Venus.vue";
-import Earth from "../views/Earth.vue";
 import Mars from "../views/Mars.vue";
 import Jupiter from "../views/Jupiter.vue";
 import Saturn from "../views/Saturn.vue";
@@ -14,9 +14,10 @@ Vue.use(VueRouter);
 const routes = [
   {
     // path: "/:planet_name",
-    path: "/",
-    name: "Home",
-    component: Home,
+
+    path: "/mercury",
+    name: "Mercury",
+    component: Mercury,
   },
   {
     path: "/venus",
@@ -24,9 +25,9 @@ const routes = [
     component: Venus,
   },
   {
-    path: "/earth",
-    name: "Earth",
-    component: Earth,
+    path: "/",
+    name: "Home",
+    component: Home,
   },
   {
     path: "/mars",

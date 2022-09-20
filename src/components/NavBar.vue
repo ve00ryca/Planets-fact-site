@@ -2,7 +2,7 @@
   <div>
     <div class="nav" id="navbar">
       <router-link to="/" id="brand">THE PLANETS</router-link>
-      <!-- navigation for mobile devices -->
+      <!-- hamburger menu for mobile devices -->
       <div
         id="hamburgerButton"
         @click="isHiddenHamburgerMenu = !isHiddenHamburgerMenu"
@@ -98,9 +98,9 @@ export default {
         this.isHiddenHamburgerButton = false;
       }
     },
-    /* The path equals the planet name for all planet view except for Mercury, where the path is the home page */
+    /* The path equals the planet name for all planet view except for Earth, where the path is the home page */
     getPath(name) {
-      return name == "Mercury" ? "/" : "/" + name;
+      return name == "Earth" ? "/" : "/" + name;
     },
   },
   created() {

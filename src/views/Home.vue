@@ -1,7 +1,7 @@
 <template>
   <div class="home planets">
     <main>
-      <Planet planet_name="Mercury" />
+      <Planet planet_name="Earth" />
     </main>
   </div>
 </template>
