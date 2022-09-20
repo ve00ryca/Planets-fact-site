@@ -83,14 +83,24 @@
           <div class="btnAdditionalWord" v-if="buttonBackground">geology</div>
         </button>
       </div>
-      <!-- src: in planetName the capital letter is replaced with lower case -->
-      <img :src="getImg()" :class="`image${planet.name}`" />
-      <img
-        v-if="topic == 'geology'"
-        :src="require(`@/assets/geology-${planetName}.png`)"
-        class="imageGeology"
-        :class="`imageGeology${planet.name}`"
-      />
+      <div class="outer-image">
+        <!-- src: in planetName the capital letter is replaced with lower case -->
+        <img :src="getImg()" :class="`image${planet.name}`" />
+        <div class="inner-image">
+          <img
+            v-if="topic == 'geology'"
+            :src="require(`@/assets/geology-${planetName}.png`)"
+            class="imageGeology"
+            :class="`imageGeology${planet.name}`"
+          />
+        </div>
+        <!-- <img
+          v-if="topic == 'geology'"
+          :src="require(`@/assets/geology-${planetName}.png`)"
+          class="imageGeology"
+          :class="`imageGeology${planet.name}`"
+        /> -->
+      </div>
       <div class="planet-description">
         <h1>{{ planet.name }}</h1>
         <p>{{ content }}</p>
@@ -575,6 +585,17 @@ button:focus-visible {
 }
 
 /* image area */
+.outer-image {
+  position: relative;
+}
+.inner-image {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 50%;
+  right: 0;
+  left: 0;
+}
 .planet img {
   margin: 0 auto;
   height: auto;
@@ -585,13 +606,6 @@ button:focus-visible {
   -ms-animation: opacityAnim 1s linear;
 }
 
-.planet-description h1 {
-  animation: opacityAnim 1s linear;
-  -webkit-animation: opacityAnim 1s linear;
-  -moz-animation: opacityAnim 1s linear;
-  -o-animation: opacityAnim 1s linear;
-  -ms-animation: opacityAnim 1s linear;
-}
 @keyframes imAnim {
   0% {
     opacity: 0;
@@ -635,43 +649,33 @@ button:focus-visible {
 .planet img:not(.imageGeology) {
   background: var(--background-color);
 }
+
 .imageMercury {
-  width: 7rem;
+  width: 24%;
 }
 .imageVenus {
-  width: 9.6rem;
+  width: 34%;
 }
 .imageEarth {
-  width: 10.8rem;
+  width: 38.5%;
 }
 .imageMars {
-  width: 8rem;
+  width: 29%;
 }
 .imageJupiter {
-  width: 14rem;
+  width: 55%;
 }
 .imageSaturn {
-  width: 16rem;
+  width: 55%;
 }
 .imageUranus {
-  width: 11rem;
+  width: 40%;
 }
 .imageNeptune {
-  width: 10.8rem;
+  width: 38%;
 }
 .imageGeology {
-  position: absolute;
-  top: 16rem;
-  width: 5rem;
-}
-.imageGeologyMercury,
-.imageGeologyVenus,
-.imageGeologyEarth,
-.imageGeologyMars {
-  top: 14rem;
-}
-.imageGeologySaturn {
-  top: 19.2rem;
+  width: 25%;
 }
 
 /* planet description area */
@@ -682,7 +686,13 @@ button:focus-visible {
 .planet-description h1 {
   font-size: 2.5rem;
   font-weight: 400;
+  animation: opacityAnim 1s linear;
+  -webkit-animation: opacityAnim 1s linear;
+  -moz-animation: opacityAnim 1s linear;
+  -o-animation: opacityAnim 1s linear;
+  -ms-animation: opacityAnim 1s linear;
 }
+
 .planet-description p {
   margin-top: 2rem;
   margin-bottom: 2.5rem;
@@ -776,52 +786,10 @@ button:focus-visible {
   .btnAdditionalWord {
     display: inline;
   }
-  .planet img {
+  .planet .outer-image {
     grid-area: 1/1/2/3;
   }
-  .imageMercury {
-    width: 11.5rem !important;
-  }
-  .imageVenus {
-    width: 15.8rem !important;
-  }
-  .imageEarth {
-    width: 17.8rem !important;
-  }
-  .imageMars {
-    width: 13.3rem !important;
-  }
-  .imageJupiter {
-    width: 23rem !important;
-  }
-  .imageSaturn {
-    width: 26rem !important;
-  }
-  .imageUranus {
-    width: 18rem !important;
-  }
-  .imageNeptune {
-    width: 17.8rem !important;
-  }
-  .imageGeology {
-    width: 8rem;
-  }
-  .imageGeologyMercury {
-    top: 6rem;
-  }
-  .imageGeologyVenus,
-  .imageGeologyEarth,
-  .imageGeologyMars {
-    top: 8rem !important;
-  }
-  .imageGeologySaturn {
-    top: 17.2rem !important;
-  }
-  .imageGologyJupiter,
-  .imageGeologyUranus,
-  .imageGeologyNeptune {
-    top: 11rem;
-  }
+
   .planet-description {
     text-align: left;
   }
@@ -878,7 +846,7 @@ button:focus-visible {
   .planet-description span {
     font-size: 85% !important;
   }
-  .planet img {
+  .planet .outer-image {
     grid-area: 1/1/3/2;
     align-self: center;
     margin-top: -5rem;
@@ -896,39 +864,18 @@ button:focus-visible {
   .imageMars {
     width: 45% !important;
   }
-  .imageJupiter {
-    width: 125% !important;
-  }
-  .imageSaturn {
-    width: 125% !important;
-  }
-  .imageUranus {
-    width: 95% !important;
-  }
-  .imageNeptune {
-    width: 92% !important;
-  }
   .imageJupiter,
   .imageSaturn {
-    padding-right: 3rem;
+    width: 100% !important;
   }
-  .imageGeologyMercury,
-  .imageGeologyVenus,
-  .imageGeologyEarth,
-  .imageGeologyMars,
-  .imageGeologyJupiter,
-  .imageGeologyUranus,
-  .imageGeologyNeptune {
-    top: 58% !important;
+  .imageUranus {
+    width: 85% !important;
   }
-  .imageGeologySaturn {
-    width: 32% !important;
-    top: 72% !important;
-    right: 28% !important;
+  .imageNeptune {
+    width: 81% !important;
   }
-  .imageGeologyJupiter {
-    width: 43% !important;
-    right: 21% !important;
+  .imageGeology {
+    width: 40%;
   }
 
   .planet-statistics {
